@@ -78,6 +78,7 @@ int main(int argc, char* argv[])
 					//ETC
 					break;
 			}
+			//prueba edicion
 		}
 		else if (mem_global.objetoEncontrado){
 			int distancia = sonar.dist();
@@ -97,15 +98,15 @@ int main(int argc, char* argv[])
 
 				//Caso de que este dentro de la distacia de seguridad y gire a su alrededor estancionariamente//
 
-				angulobits = angulo*38.88888889; //angulo=angulo en บ girado por el servo horizontal
+				angulobits = angulo*38.88888889; //angulo=angulo en ยบ girado por el servo horizontal
 				error = (float)angulobits - 3500;
-				int toleranciamin = -(6 * 38.8888); //conversion de บs a bits
+				int toleranciamin = -(6 * 38.8888); //conversion de ยบs a bits
 				int toleranciamax = 6 * 38.8888;
 				//int velocidadmin=80; //para la PRIMERA VERSION
 
 				if (abs(error) < toleranciamax){
-					/*Suponemos que el angulo 0บ de la camara mira hacia uno de los lados donde se encuentran las ruedas, situando los 90บ hacia el frente del robot.
-					La conversion del sistema equivale que 90บ son 3500 por lo que le damos un margen de unos 5บ para considerarlo mirando hacia el frente del objeto*/
+					/*Suponemos que el angulo 0ยบ de la camara mira hacia uno de los lados donde se encuentran las ruedas, situando los 90ยบ hacia el frente del robot.
+					La conversion del sistema equivale que 90ยบ son 3500 por lo que le damos un margen de unos 5ยบ para considerarlo mirando hacia el frente del objeto*/
 
 					motor0.velocidad(0);
 					motor1.velocidad(0);
