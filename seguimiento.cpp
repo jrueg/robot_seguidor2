@@ -8,7 +8,7 @@
 #include "control.h"
 #include "main.h"
 
-#define activa_gui
+//#define activa_gui
 
 using namespace cv;
 

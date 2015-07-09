@@ -68,15 +68,18 @@ int main(int argc, char* argv[])
 	while (mem_global.salida){
 		if (mem_global.remoto != 'x'){
 			cout << mem_global.remoto << endl;
-			
+
 			//AQUI EL CODIGO MANUAL
-			switch (mem_global.remoto)
+			switch (mem_global.remoto){
 				case '1':
 					//Tal
+					break;
 				case '2':
 					//ETC
-
-		}else if (mem_global.objetoEncontrado){
+					break;
+			}
+		}
+		else if (mem_global.objetoEncontrado){
 			int distancia = sonar.dist();
 
 			if (distancia == -1){
@@ -85,7 +88,7 @@ int main(int argc, char* argv[])
 
 			angulo = mem_global.angulo*1.8;
 			//cout << "El angulo es: " << angulo << ". La distancia es: " << distancia << endl;
-			if (abs(distanciaseguridad - distancia)<5){
+			if (abs(distanciaseguridad - distancia) < 5){
 				//robot dentro de la distancia deseada__>PARADO//
 
 				/*CASO SENCILLO-->PARADO SIN GIRAR
@@ -100,7 +103,7 @@ int main(int argc, char* argv[])
 				int toleranciamax = 6 * 38.8888;
 				//int velocidadmin=80; //para la PRIMERA VERSION
 
-				if (abs(error)<toleranciamax){
+				if (abs(error) < toleranciamax){
 					/*Suponemos que el angulo 0º de la camara mira hacia uno de los lados donde se encuentran las ruedas, situando los 90º hacia el frente del robot.
 					La conversion del sistema equivale que 90º son 3500 por lo que le damos un margen de unos 5º para considerarlo mirando hacia el frente del objeto*/
 
@@ -108,7 +111,7 @@ int main(int argc, char* argv[])
 					motor1.velocidad(0);
 
 				}
-				else if (error<toleranciamin){
+				else if (error < toleranciamin){
 					//la camara mira a la izquierda por lo que hay que girar a la izquierda estacionariamente (sobre una rueda)
 					/*PRIMERA VERSION
 
@@ -132,10 +135,10 @@ int main(int argc, char* argv[])
 
 					lastError = error;
 
-					if (PV>55){
+					if (PV > 55){
 						PV = 55;
 					}
-					if (PV<-55){
+					if (PV < -55){
 						PV = -55;
 					}
 					PV1 = PV * 10 / 55;  //CONVERSION DE BITS A %: MAX.10% PARA PERMITIR EN MINIMO CASO (-10%) EL FUNCIONAMIENTO AL 80%
@@ -144,7 +147,7 @@ int main(int argc, char* argv[])
 
 				}
 
-				else if (error>toleranciamax){
+				else if (error > toleranciamax){
 
 					//IDEM para girar a la derecha estacionariamente
 					/*PRIMERA VERSION
@@ -164,10 +167,10 @@ int main(int argc, char* argv[])
 
 					lastError = error;
 
-					if (PV>55){
+					if (PV > 55){
 						PV = 55;
 					}
-					if (PV<-55){
+					if (PV < -55){
 						PV = -55;
 					}
 
@@ -179,7 +182,7 @@ int main(int argc, char* argv[])
 				}
 			}
 
-			else if (distancia>distanciaseguridad){
+			else if (distancia > distanciaseguridad){
 				//robot lejos del objeto de referencia__>ADELANTE//
 				angulobits = angulo*38.88888889;
 
@@ -188,10 +191,10 @@ int main(int argc, char* argv[])
 				PV = kp * error + kd * (error - lastError);
 				lastError = error;
 
-				if (PV>55){
+				if (PV > 55){
 					PV = 55;
 				}
-				if (PV<-55){
+				if (PV < -55){
 					PV = -55;
 				}
 				PV1 = PV * 10 / 55;
@@ -208,10 +211,10 @@ int main(int argc, char* argv[])
 				PV = kp * error + kd * (error - lastError);
 				lastError = error;
 
-				if (PV>55){
+				if (PV > 55){
 					PV = 55;
 				}
-				if (PV<-55){
+				if (PV < -55){
 					PV = -55;
 				}
 				PV1 = PV * 10 / 55;
