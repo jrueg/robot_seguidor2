@@ -197,14 +197,13 @@ void seguimiento(struct mem_global *mem_global)
 		//Tratar la imagen con los operadores morfologicos
 		morphOps(threshold);
 		//Obtener objetos de imagen tratada
-		trackFilteredObject(mem_global ,threshold,cameraFeed);
+		trackFilteredObject(mem_global, threshold, cameraFeed);
 		
 		#ifdef activa_gui
 			//Mostrar ventanas
 			imshow(windowName2, threshold);
 			//imshow(windowName1,HSV);
 			imshow(windowName, cameraFeed);
-			
 			waitKey(10);
 		#endif
 
@@ -215,8 +214,9 @@ void seguimiento(struct mem_global *mem_global)
 		if ((*mem_global).objetoEncontrado){
 			//Servo en x
 			pos0 -=	con_s0.calculo_realim((*mem_global).x);
-			if (pos0 > 90) pos0 = 90;
-			if (pos0 < 10) pos0 = 10;
+			if (pos0 > 80) pos0 = 80;
+			if (pos0 < 20) pos0 = 20;
+			(*mem_global).angulo = pos0;
 			servoBlaster(0, pos0);
 
 			//Servo en y

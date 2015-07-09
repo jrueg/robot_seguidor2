@@ -212,9 +212,16 @@ int sonar::dist(){
 	digitalWrite(trig, 1);
 	delayMicroseconds(20);
 	digitalWrite(trig, 0);
+	int tantes = millis();
 
 	//Esperar al eco
-	while (digitalRead(echo) == 0);
+	while (digitalRead(echo) == 0 && millis() - tantes < 100){
+	}
+
+	//Error de timeout
+	if (millis() - tantes >= 100){
+		return(-1);
+	}
 
 	//Esperar al fin del eco
 	long tiempo_inicial = micros();

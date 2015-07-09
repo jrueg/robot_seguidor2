@@ -43,35 +43,32 @@ void bluecom(struct mem_global *mem_global){
 	
 	while((*mem_global).salida){
 
-		if(millis()-time>=1000){
+		if(millis()-time>=100){
 			//Escribir por bluetooth los datos de posicion del objeto cada segundo
-			std::string mandar = "x = " + std::to_string((*mem_global).x) + " y = " + std::to_string((*mem_global).y) + "\n";
-			serialPuts (fd, mandar.c_str());
-			time=millis();
+			(*mem_global).remoto = 'x';
 		}
 	 
 		// Tratamiento de mensajes recibidos
 		if(serialDataAvail (fd)){
-		char newChar = serialGetchar (fd);
-			if(newChar == -1){
+		(*mem_global).remoto = serialGetchar (fd);
+			if ((*mem_global).remoto == -1){
+				(*mem_global).remoto = 'x';
 				cout << "Error al leer carácter: Sin datos disponibles!" << endl;
 			}
 			else{
-				cout << newChar;
+				//cout << newChar;
 				//Una vez recibido el caracter se puede identificar para generar acciones
-				if (newChar == ':'){ //Cierre de programa
+				
+				if ((*mem_global).remoto == ':'){ //Cierre de programa
 					cout << "Recibido caracter de terminacion de programa." << endl;
 					(*mem_global).salida = false;
 					serialPuts(fd, "Finalizando programa...");
 				}
 				fflush(stdout);
+				time = millis();
 			}
   		}	
-		//Asegurar que el programa cierra si pasa demasiado tiempo
-		if (millis() - time2 >= 1000000){
-			cout << "Superado el tiempo limite de prueba." << endl;
-			(*mem_global).salida = false;
-		}
+
 	}
 	
 	cout << "Cerrando puerto serie" << endl;

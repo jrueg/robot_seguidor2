@@ -16,11 +16,13 @@ struct mem_global {
 	int S_MAX;
 	int V_MIN;
 	int V_MAX;
+	int angulo;
 	double x;
 	double y;
 	double vel;
 	bool salida;
 	bool objetoEncontrado;
+	char remoto;
 };
 
 //Para seguimiento
