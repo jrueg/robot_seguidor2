@@ -1,7 +1,7 @@
 echo Iniciando Servo Blaster
 cd /home/pi/ServoBlaster/
 ./servod --p1pins="11,12"
-cd /home/pi/robot_seguidor/
+cd /home/pi/robot_seguidor2/
 echo Descargando ultima version desde Github
 git pull
 echo Compilando programa...
