@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 					//derecha
 					
 					motor0.velocidad(80);
-					motor1.velocidad();
+					motor1.velocidad(0);
 					break;
 				case '7':
 					//adelante-izquierda
