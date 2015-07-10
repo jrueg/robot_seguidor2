@@ -199,8 +199,8 @@ int main(int argc, char* argv[])
 					PV = -55;
 				}
 				PV1 = PV * 10 / 55;
-				motor0.velocidad(90 + PV1);
-				motor1.velocidad(90 - PV1);
+				motor0.velocidad(90 - PV1);
+				motor1.velocidad(90 + PV1);
 			}
 			else{
 				//robot demasiado cerca__>ATRAS//
@@ -219,8 +219,8 @@ int main(int argc, char* argv[])
 					PV = -55;
 				}
 				PV1 = PV * 10 / 55;
-				motor1.velocidad(-(90 + PV1));
-				motor0.velocidad(-(90 - PV1));
+				motor1.velocidad(-(90 - PV1));
+				motor0.velocidad(-(90 + PV1));
 			}
 		}
 		else{
