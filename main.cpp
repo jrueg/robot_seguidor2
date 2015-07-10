@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 				case '1':
 					//atras-izquierda
 					motor0.velocidad(-80);
-					motor1.velocidad(-90);
+					motor1.velocidad(-100);
 					break;
 				case '2':
 					//atras
@@ -83,13 +83,13 @@ int main(int argc, char* argv[])
 					break;
 				case '3':
 					//atras-derecha
-					motor0.velocidad(-90);
+					motor0.velocidad(-100);
 					motor1.velocidad(-80);
 					break;
 				case '4':
 					//izquierda
-					motor0.velocidad(-90);
-					motor1.velocidad(90);
+					motor0.velocidad(0);
+					motor1.velocidad(80);
 					break;
 				case '5':
 					//parado
@@ -99,13 +99,13 @@ int main(int argc, char* argv[])
 				case '6':
 					//derecha
 					
-					motor0.velocidad(90);
-					motor1.velocidad(-90);
+					motor0.velocidad(80);
+					motor1.velocidad();
 					break;
 				case '7':
 					//adelante-izquierda
 					motor0.velocidad(80);
-					motor1.velocidad(90);
+					motor1.velocidad(100);
 					break;
 				case '8':
 					//adelante
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 					break;
 				case '9':
 					//adelante-derecha
-					motor0.velocidad(90);
+					motor0.velocidad(100);
 					motor1.velocidad(80);
 					break;
 			}
