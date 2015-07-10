@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
 					motor0.velocidad(0);
 					motor1.velocidad(0);
 					break;
-				case '6:
+				case '6':
 					//derecha
 					motor0.velocidad(90);
 					motor1.velocidad(-90);
