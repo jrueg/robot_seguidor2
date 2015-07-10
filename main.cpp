@@ -80,9 +80,6 @@ int main(int argc, char* argv[])
 					//atras
 					motor0.velocidad(-90);
 					motor1.velocidad(-90);
-					while(mem_global.remoto==2){
-						motor0.velocidad(-90);
-						motor1.velocidad(-90);}
 					break;
 				case '3':
 					//atras-derecha
@@ -91,9 +88,8 @@ int main(int argc, char* argv[])
 					break;
 				case '4':
 					//izquierda
-					while(mem_global.remoto==4){
 					motor0.velocidad(-90);
-					motor1.velocidad(90);}
+					motor1.velocidad(90);
 					break;
 				case '5':
 					//parado
@@ -102,9 +98,9 @@ int main(int argc, char* argv[])
 					break;
 				case '6':
 					//derecha
-					while(mem_global.remoto==6){
+					
 					motor0.velocidad(90);
-					motor1.velocidad(-90);}
+					motor1.velocidad(-90);
 					break;
 				case '7':
 					//adelante-izquierda
@@ -113,9 +109,9 @@ int main(int argc, char* argv[])
 					break;
 				case '8':
 					//adelante
-					while(mem_global.remoto==8){
+					
 					motor0.velocidad(90);
-					motor1.velocidad(90);}
+					motor1.velocidad(90);
 					break;
 				case '9':
 					//adelante-derecha
