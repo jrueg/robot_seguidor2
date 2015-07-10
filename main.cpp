@@ -72,10 +72,49 @@ int main(int argc, char* argv[])
 			//AQUI EL CODIGO MANUAL
 			switch (mem_global.remoto){
 				case '1':
-					//Tal
+					//atras-izquierda
+					motor0.velocidad(-80);
+					motor1.velocidad(-90);
 					break;
 				case '2':
-					//ETC
+					//atras
+					motor0.velocidad(90);
+					motor1.velocidad(90);
+					break;
+				case '3':
+					//atras-derecha
+					motor0.velocidad(-90);
+					motor1.velocidad(-80);
+					break;
+				case '4':
+					//izquierda
+					motor0.velocidad(-90);
+					motor1.velocidad(90);
+					break;
+				case '5':
+					//parado
+					motor0.velocidad(0);
+					motor1.velocidad(0);
+					break;
+				case '6:
+					//derecha
+					motor0.velocidad(90);
+					motor1.velocidad(-90);
+					break;
+				case '7':
+					//adelante-izquierda
+					motor0.velocidad(80);
+					motor1.velocidad(90);
+					break;
+				case '8':
+					//adelante
+					motor0.velocidad(90);
+					motor1.velocidad(90);
+					break;
+				case '9':
+					//adelante-derecha
+					motor0.velocidad(90);
+					motor1.velocidad(80);
 					break;
 			}
 			//prueba edicion
