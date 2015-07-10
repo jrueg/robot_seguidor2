@@ -78,9 +78,11 @@ int main(int argc, char* argv[])
 					break;
 				case '2':
 					//atras
-					while(mem_global.remoto==2){
 					motor0.velocidad(-90);
-					motor1.velocidad(-90);}
+					motor1.velocidad(-90);
+					while(mem_global.remoto==2){
+						motor0.velocidad(-90);
+						motor1.velocidad(-90);}
 					break;
 				case '3':
 					//atras-derecha
